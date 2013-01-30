@@ -1,0 +1,13 @@
+<nav>
+<h2>Beercan</h2>
+<ul>
+  <li><%= link_to "Index", "/" %></li>
+  <li><%= link_to "Add a new beercan", "/" %></li>
+</ul>
+</nav>
+<div class="picture">
+  <%= image_tag @can.url%><br />
+  <%= @can.caption %><br />
+  <%= @can.brewery %><br />
+  <%= @can.year_brewed %><br />
+</div>

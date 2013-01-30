@@ -1,0 +1,14 @@
+<h1>Beercans</h1>
+<%= link_to "Add a new beercan image", new_beercan_url %>
+<%# @beercans %>
+<ul>
+<% @beercans.each do |can| %>
+  <li class="canimage">
+    <%= link_to (image_tag can.url, :width => "250") , beercan_url(can.id)  %>
+    <p class="caption"><%= can.caption %><%= link_to "edit", edit_beercan_url(can.id) %>
+      <%= link_to "delete", beercan_url(can.id), :method => "delete", :confirm => "Are you sure you want to delete?" %></p>
+    <p class="caption"><%= can.brewery %></p>
+    <p class="brewyear"><%= can.year_brewed %></p
+  </li>
+<% end %>
+</ul>

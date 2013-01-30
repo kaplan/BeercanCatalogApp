@@ -1,0 +1,31 @@
+<nav>
+<h2>Edit: <%= @can.caption %></h2>
+<ul>
+  <li><%= link_to "Index", "/" %></li>
+  <li><%= link_to "Add a new beercan", "/" %></li>
+</ul>
+</nav>
+
+<div class="picture">
+  <%= image_tag @can.url, :size => "250x250" %>
+</div>
+
+<%= form_tag beercan_url(@can.id), :method => "put" do %>
+  <fieldset>
+    <%= label_tag "url:" %>
+    <%= text_field_tag :url, @can.url %>
+  </fieldset>
+  <fieldset>
+    <%= label_tag "caption:" %>
+    <%= text_field_tag :caption, @can.caption %>
+  </fieldset>
+  <fieldset>
+    <%= label_tag "brewery:" %>
+    <%= text_field_tag :brewery, @can.brewery %>
+  </fieldset>
+  <fieldset>
+    <%= label_tag "year brewed:" %>
+    <%= text_field_tag :year_brewed, @can.year_brewed %>
+  </fieldset>
+  <%= submit_tag "Update" %>
+<% end %>
