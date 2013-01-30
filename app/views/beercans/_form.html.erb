@@ -1,0 +1,45 @@
+<% if @can.id %>
+  <!-- form for edit -->
+  <%= form_tag beercan_url(@can.id), :method => "put" do %>
+    <fieldset>
+      <%= label_tag "url:" %>
+      <%= text_field_tag :url, @can.url %>
+    </fieldset>
+    <fieldset>
+      <%= label_tag "caption:" %>
+      <%= text_field_tag :caption, @can.caption %>
+    </fieldset>
+    <fieldset>
+      <%= label_tag "brewery:" %>
+      <%= text_field_tag :brewery, @can.brewery %>
+    </fieldset>
+    <fieldset>
+      <%= label_tag "year brewed:" %>
+      <%= text_field_tag :year_brewed, @can.year_brewed %>
+    </fieldset>
+    <%= submit_tag "Update" %>
+  <% end %>
+
+<% else %>
+  <!-- for for new -->
+    <%= form_tag beercans_url do %>
+    <fieldset>
+      <%= label_tag "image url" %>
+      <%= text_field_tag :url %>
+    </fieldset>
+    <fieldset>
+      <%= label_tag "caption" %>
+      <%= text_field_tag :caption %>
+    </fieldset>
+    <fieldset>
+      <%= label_tag "brewery" %>
+      <%= text_field_tag :brewery %>
+    </fieldset>
+    <fieldset>
+      <%= label_tag "brew year" %>
+      <%= text_field_tag :year_brewed %>
+    </fieldset>
+    <%= submit_tag "submit" %>
+  <% end %>
+
+<% end %>

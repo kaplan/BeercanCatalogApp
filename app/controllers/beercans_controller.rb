@@ -11,12 +11,17 @@ class BeercansController < ApplicationController
   def create
     logger.info "----> CREATE <-----"
 
-    can = Beercan.new
-    can.url = params[:url]
-    can.caption = params[:caption]
-    can.brewery = params[:brewery]
-    can.year_brewed = params[:year_brewed]
-    can.save
+    # you can use arguments that will intialize an instance with params for a new model instance. if you use .create it will also .save
+    can = Beercan.create({  :url => params[:url],
+                            :caption => params[:caption],
+                            :brewery => params[:brewery],
+                            :year_brewed => params[:year_brewed]})
+    # can = Beercan.new
+    # can.url = params[:url]
+    # can.caption = params[:caption]
+    # can.brewery = params[:brewery]
+    # can.year_brewed = params[:year_brewed]
+    # can.save
     redirect_to beercans_url
   end
 
@@ -48,7 +53,7 @@ class BeercansController < ApplicationController
   end
 
   def new
-
+    @can = Beercan.new
   end
 
 end
