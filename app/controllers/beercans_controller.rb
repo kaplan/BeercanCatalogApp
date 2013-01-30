@@ -15,7 +15,8 @@ class BeercansController < ApplicationController
     can = Beercan.create({  :url => params[:url],
                             :caption => params[:caption],
                             :brewery => params[:brewery],
-                            :year_brewed => params[:year_brewed]})
+                            :year_brewed => params[:year_brewed]
+                          })
     # can = Beercan.new
     # can.url = params[:url]
     # can.caption = params[:caption]
@@ -34,15 +35,21 @@ class BeercansController < ApplicationController
   end
 
   def update
-    logger.info "working on update here:"
-    logger.info params.inspect
-    can = Beercan.find_by_id(params[:id])
+    # logger.info "working on update here:"
+    # logger.info params.inspect
+    # can = Beercan.find_by_id(params[:id])
     # logger.info can
-    can.url = params[:url]
-    can.caption = params[:caption]
-    can.brewery = params[:brewery]
-    can.year_brewed = params[:year_brewed]
-    can.save
+    can = Beercan.find_by_id(params[:id]).update_attributes({
+                                          :url => params[:url],
+                                          :caption => params[:caption],
+                                          :brewery => params[:brewery],
+                                          :year_brewed => params[:year_brewed]
+                                          })
+    # can.url = params[:url]
+    # can.caption = params[:caption]
+    # can.brewery = params[:brewery]
+    # can.year_brewed = params[:year_brewed]
+    # can.save
     redirect_to beercans_url
   end
 
