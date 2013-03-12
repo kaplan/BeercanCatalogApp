@@ -1,10 +1,11 @@
 <nav>
-<h2>Edit: <%= @can.caption %></h2>
 <ul>
-  <li><%= link_to "Index", "/" %></li>
-  <li><%= link_to "Add a new beercan", "/" %></li>
+  <li><%= link_to "Beercan", beercans_url %></li>
+  <li><%= link_to "Add a new beercan", new_beercan_url %></li>
 </ul>
 </nav>
+
+<h2>Edit: <%= @can.caption %></h2>
 
 <div class="picture">
   <%= image_tag @can.url, :size => "250x250" %>

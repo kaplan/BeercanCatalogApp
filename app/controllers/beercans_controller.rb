@@ -4,6 +4,12 @@ class BeercansController < ApplicationController
     # this will show info or whatever in the server log
     logger.info "yo, beercans world!!"
     @beercans = Beercan.all
+
+    respond_to do |format|
+      format.html { render 'index' }
+      format.json { render :json => @beercans }
+    end
+
     # There is a reason for everything... explains why something is happening... it's not magic there is a cause in effect.
     # logger.info @beercans.inspect
   end
